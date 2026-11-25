@@ -1,0 +1,774 @@
+*D G S B
+
+.SUBCKT SRAM_111 BL BLB VDD VSS WL
+MM2 net1 net5 VDD VDD pmos_sramvt l=14n w=10n nf=1
+MM4 net5 net1 VDD VDD pmos_sramvt l=14n w=10n nf=1
+MM3 net5 net1 VSS VSS nmos_sramvt l=14n w=10n nf=1
+MM1 net1 net5 VSS VSS nmos_sramvt l=14n w=10n nf=1
+MM6 net5 WL BL VSS nmos_sramvt l=14n w=10n nf=1
+MM5 net1 WL BLB VSS nmos_sramvt l=14n w=10n nf=1
+.ENDS
+
+.SUBCKT SRAM_122 BL BLB VDD VSS WL
+MM2 QB Q VDD VDD pmos_sramvt l=14n w=10n nf=1
+MM4 Q QB VDD VDD pmos_sramvt l=14n w=10n nf=1
+MM3 Q QB VSS VSS nmos_sramvt l=14n w=20n nf=1
+MM1 QB Q VSS VSS nmos_sramvt l=14n w=20n nf=1
+MM6 BL WL Q VSS nmos_sramvt l=14n w=20n nf=1
+MM5 QB WL BLB VSS nmos_sramvt l=14n w=20n nf=1
+.ENDS
+
+.SUBCKT AND2_x1 A B VDD VSS Y
+*.PININFO A:I B:I Y:O VDD:B VSS:B
+MPM1 net06 B VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 Y net06 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM0 net06 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM2 net19 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM1 Y net06 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM0 net06 B net19 VSS nmos_lvt l=14n w=15n nf=1
+.ENDS AND2_x1
+
+.SUBCKT AND2_x2 A B VDD VSS Y
+*.PININFO A:I B:I Y:O VDD:B VSS:B
+MPM0 net06 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM1 net06 B VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 Y net06 VDD VDD pmos_lvt l=14n w=15n nf=2
+MNM2 Y net06 VSS VSS nmos_lvt l=14n w=15n nf=2
+MNM0 net19 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net06 B net19 VSS nmos_lvt l=14n w=15n nf=1
+.ENDS AND2_x2
+
+.SUBCKT AO211_x1 A1 A2 B C VDD VSS Y
+*.PININFO A1:I A2:I B:I C:I Y:O VDD:B VSS:B
+MPM0 net011 A1 net018 VDD pmos_lvt l=14n w=15n nf=1
+MPM3 net027 C VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM1 net011 A2 net018 VDD pmos_lvt l=14n w=15n nf=1
+MPM2 net018 B net027 VDD pmos_lvt l=14n w=15n nf=1
+MPM4 Y net011 VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM4 Y net011 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM3 net011 C VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM2 net011 B VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM0 net011 A1 net24 VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net24 A2 VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS AO211_x1
+
+.SUBCKT AO21_x1 A1 A2 B VDD VSS Y
+*.PININFO A1:I A2:I B:I Y:O VDD:B VSS:B
+MPM3 Y net024 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 net024 A2 net010 VDD pmos_lvt l=14n w=15n nf=1
+MPM0 net024 A1 net010 VDD pmos_lvt l=14n w=15n nf=1
+MPM1 net010 B VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM0 net024 A2 net24 VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net24 A1 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM3 Y net024 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM2 net024 B VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS AO21_x1
+
+.SUBCKT AO22_x1 A1 A2 B1 B2 VDD VSS Y
+*.PININFO A1:I A2:I B1:I B2:I Y:O VDD:B VSS:B
+MPM0 net014 B1 net15 VDD pmos_lvt l=14n w=15n nf=1
+MPM1 net15 A1 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM4 Y net014 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 net15 A2 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM3 net014 B2 net15 VDD pmos_lvt l=14n w=15n nf=1
+MNM4 Y net014 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM3 net014 A2 net30 VSS nmos_lvt l=14n w=15n nf=1
+MNM2 net30 A1 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM0 net014 B1 net31 VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net31 B2 VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS AO22_x1
+
+.SUBCKT AOI211_x1 A1 A2 B C VDD VSS Y
+*.PININFO A1:I A2:I B:I C:I Y:O VDD:B VSS:B
+MPM0 net011 A1 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 net027 B net011 VDD pmos_lvt l=14n w=15n nf=1
+MPM3 Y C net027 VDD pmos_lvt l=14n w=15n nf=1
+MPM1 net011 A2 VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM0 net24 A2 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM1 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM2 Y C VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM3 Y A1 net24 VSS nmos_lvt l=14n w=15n nf=1
+.ENDS AOI211_x1
+
+.SUBCKT AOI21_x1 A1 A2 B VDD VSS Y
+*.PININFO A1:I A2:I B:I Y:O VDD:B VSS:B
+MPM1 net012 B VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 Y A2 net012 VDD pmos_lvt l=14n w=15n nf=1
+MPM0 Y A1 net012 VDD pmos_lvt l=14n w=15n nf=1
+MNM0 Y A2 net24 VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net24 A1 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM2 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS AOI21_x1
+
+.SUBCKT AOI221_x1 A1 A2 B C1 C2 VDD VSS Y
+*.PININFO A1:I A2:I B:I C1:I C2:I Y:O VDD:B VSS:B
+MPM4 Y C2 net027 VDD pmos_lvt l=14n w=15n nf=1
+MPM0 net011 A1 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 net027 B net011 VDD pmos_lvt l=14n w=15n nf=1
+MPM3 Y C1 net027 VDD pmos_lvt l=14n w=15n nf=1
+MPM1 net011 A2 VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM3 Y C1 net028 VSS nmos_lvt l=14n w=15n nf=1
+MNM4 net028 C2 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM0 net24 A2 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM2 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM1 Y A1 net24 VSS nmos_lvt l=14n w=15n nf=1
+.ENDS AOI221_x1
+
+.SUBCKT AOI22_x1 A1 A2 B1 B2 VDD VSS Y
+*.PININFO A1:I A2:I B1:I B2:I Y:O VDD:B VSS:B
+MPM1 Y B1 net15 VDD pmos_lvt l=14n w=15n nf=1
+MPM3 net15 A2 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM0 net15 A1 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 Y B2 net15 VDD pmos_lvt l=14n w=15n nf=1
+MNM0 Y B1 net31 VSS nmos_lvt l=14n w=15n nf=1
+MNM3 net30 A1 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net31 B2 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM2 Y A2 net30 VSS nmos_lvt l=14n w=15n nf=1
+.ENDS AOI22_x1
+
+.SUBCKT BUF_x1 A VDD VSS Y
+*.PININFO A:I Y:O VDD:B VSS:B
+MPM0 net6 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM1 Y net6 VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM1 Y net6 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM0 net6 A VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS BUF_x1
+
+.SUBCKT BUF_x2 A VDD VSS Y
+*.PININFO A:I Y:O VDD:B VSS:B
+MNM1 Y net6 VSS VSS nmos_lvt l=14n w=15n nf=2
+MNM0 net6 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MPM1 Y net6 VDD VDD pmos_lvt l=14n w=15n nf=2
+MPM0 net6 A VDD VDD pmos_lvt l=14n w=15n nf=1
+.ENDS BUF_x2
+
+.SUBCKT BUF_x4 A VDD VSS Y
+*.PININFO A:I Y:O VDD:B VSS:B
+MPM1 Y net6 VDD VDD pmos_lvt l=14n w=15n nf=4
+MPM0 net6 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM1 Y net6 VSS VSS nmos_lvt l=14n w=15n nf=4
+MNM0 net6 A VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS BUF_x4
+
+.SUBCKT BUF_x8 A VDD VSS Y
+*.PININFO A:I Y:O VDD:B VSS:B
+MNM1 Y net6 VSS VSS nmos_lvt l=14n w=15n nf=8
+MNM0 net6 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MPM0 net6 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM1 Y net6 VDD VDD pmos_lvt l=14n w=15n nf=8
+.ENDS BUF_x8
+
+.SUBCKT DFF_x1 CLK D Q QN VDD VSS
+*.PININFO CLK:I D:I Q:O QN:O VDD:B VSS:B
+MPM4 QN Q VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM3 net23 net15 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM9 net23 CLKn Q VDD pmos_lvt l=14n w=15n nf=1
+MPM0 net15 CLK net57 VDD pmos_lvt l=14n w=15n nf=1
+MPM1 net57 D VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 CLKn CLK VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM5 net55 net23 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM8 Q CLK net53 VDD pmos_lvt l=14n w=15n nf=1
+MPM6 net15 CLKn net55 VDD pmos_lvt l=14n w=15n nf=1
+MPM7 net53 QN VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM2 CLKn CLK VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM5 net15 CLK net54 VSS nmos_lvt l=14n w=15n nf=1
+MNM4 QN Q VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM3 net23 net15 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net15 CLKn net59 VSS nmos_lvt l=14n w=15n nf=1
+MNM0 net59 D VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM9 net23 CLK Q VSS nmos_lvt l=14n w=15n nf=1
+MNM6 net54 net23 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM8 Q CLKn net52 VSS nmos_lvt l=14n w=15n nf=1
+MNM7 net52 QN VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS DFF_x1
+
+
+.SUBCKT HA_x1 A B CON SN VDD VSS
+*.PININFO A:I B:I CON:O SN:O VDD:B VSS:B
+MNM0 net19 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM1 CON B net19 VSS nmos_lvt l=14n w=15n nf=1
+MNM4 net016 CON VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM3 SN A net016 VSS nmos_lvt l=14n w=15n nf=1
+MNM2 SN B net016 VSS nmos_lvt l=14n w=15n nf=1
+MPM0 CON A VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM1 CON B VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 net023 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM3 SN B net023 VDD pmos_lvt l=14n w=15n nf=1
+MPM4 SN CON VDD VDD pmos_lvt l=14n w=15n nf=1
+.ENDS HA_x1
+
+.SUBCKT INV_x1 A VDD VSS Y
+*.PININFO A:I Y:O VDD:B VSS:B
+MNM0 Y A VSS VSS nmos_lvt l=14n w=15n nf=1
+MPM0 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+.ENDS INV_x1
+
+.SUBCKT INV_x10 A VDD VSS Y
+*.PININFO A:I Y:O VDD:B VSS:B
+MNM0 Y A VSS VSS nmos_lvt l=14n w=15n nf=10
+MPM0 Y A VDD VDD pmos_lvt l=14n w=15n nf=10
+.ENDS INV_x10
+
+.SUBCKT INV_x12 A VDD VSS Y
+*.PININFO A:I Y:O VDD:B VSS:B
+MNM0 Y A VSS VSS nmos_lvt l=14n w=15n nf=12
+MPM0 Y A VDD VDD pmos_lvt l=14n w=15n nf=12
+.ENDS INV_x12
+
+.SUBCKT INV_x2 A VDD VSS Y
+*.PININFO A:I Y:O VDD:B VSS:B
+MNM0 Y A VSS VSS nmos_lvt l=14n w=15n nf=2
+MPM0 Y A VDD VDD pmos_lvt l=14n w=15n nf=2
+.ENDS INV_x2
+
+.SUBCKT INV_x3 A VDD VSS Y
+*.PININFO A:I Y:O VDD:B VSS:B
+MNM0 Y A VSS VSS nmos_lvt l=14n w=15n nf=3
+MPM0 Y A VDD VDD pmos_lvt l=14n w=15n nf=3
+.ENDS INV_x3
+
+.SUBCKT INV_x4 A VDD VSS Y
+*.PININFO A:I Y:O VDD:B VSS:B
+MNM0 Y A VSS VSS nmos_lvt l=14n w=15n nf=4
+MPM0 Y A VDD VDD pmos_lvt l=14n w=15n nf=4
+.ENDS INV_x4
+
+.SUBCKT INV_x6 A VDD VSS Y
+*.PININFO A:I Y:O VDD:B VSS:B
+MNM0 Y A VSS VSS nmos_lvt l=14n w=15n nf=6
+MPM0 Y A VDD VDD pmos_lvt l=14n w=15n nf=6
+.ENDS INV_x6
+
+.SUBCKT INV_x8 A VDD VSS Y
+*.PININFO A:I Y:O VDD:B VSS:B
+MNM0 Y A VSS VSS nmos_lvt l=14n w=15n nf=8
+MPM0 Y A VDD VDD pmos_lvt l=14n w=15n nf=8
+.ENDS INV_x8
+
+.SUBCKT MAJ_x1 A B C VDD VSS Y
+*.PININFO A:I B:I C:I Y:O VDD:B VSS:B
+MPM10 net010 B VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM7 net034 B VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM8 net4 A net034 VDD pmos_lvt l=14n w=15n nf=1
+MPM11 net4 C net010 VDD pmos_lvt l=14n w=15n nf=1
+MPM9 net034 C VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM5 Y net4 VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM9 net4 A net033 VSS nmos_lvt l=14n w=15n nf=1
+MNM5 Y net4 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM6 net09 B VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM7 net033 C VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM10 net4 C net09 VSS nmos_lvt l=14n w=15n nf=1
+MNM8 net033 B VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS MAJ_x1
+
+.SUBCKT MAJ_x2 A B C VDD VSS Y
+*.PININFO A:I B:I C:I Y:O VDD:B VSS:B
+MPM10 net010 B VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM7 net034 B VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM8 net4 A net034 VDD pmos_lvt l=14n w=15n nf=1
+MPM11 net4 C net010 VDD pmos_lvt l=14n w=15n nf=1
+MPM9 net034 C VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM5 Y net4 VDD VDD pmos_lvt l=14n w=15n nf=2
+MNM9 net4 A net033 VSS nmos_lvt l=14n w=15n nf=1
+MNM5 Y net4 VSS VSS nmos_lvt l=14n w=15n nf=2
+MNM6 net09 B VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM7 net033 C VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM10 net4 C net09 VSS nmos_lvt l=14n w=15n nf=1
+MNM8 net033 B VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS MAJ_x2
+
+.SUBCKT MUX2_x1 A B S VDD VSS Y
+*.PININFO A:I B:I S:I Y:O VDD:B VSS:B
+MM11 Y N1 VDD VDD pmos_lvt l=14n w=15n nf=1
+MM10 Y N2 VDD VDD pmos_lvt l=14n w=15n nf=1
+MM7 N2 B VDD VDD pmos_lvt l=14n w=15n nf=1
+MM6 N2 S VDD VDD pmos_lvt l=14n w=15n nf=1
+MM3 N1 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM2 N1 SN VDD VDD pmos_lvt l=14n w=15n nf=1
+MM1 SN S VDD VDD pmos_lvt l=14n w=15n nf=1
+MM13 XN3_NET19 N1 VSS VSS nmos_lvt l=14n w=15n nf=1
+MM12 Y N2 XN3_NET19 VSS nmos_lvt l=14n w=15n nf=1
+MM9 XN2_NET19 B VSS VSS nmos_lvt l=14n w=15n nf=1
+MM8 N2 S XN2_NET19 VSS nmos_lvt l=14n w=15n nf=1
+MM5 XN1_NET19 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM4 N1 SN XN1_NET19 VSS nmos_lvt l=14n w=15n nf=1
+MM0 SN S VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS MUX2_x1
+
+.SUBCKT NAND2_x1 A B VDD VSS Y
+*.PININFO A:I B:I Y:O VDD:B VSS:B
+MPM1 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM0 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM0 Y B net19 VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net19 A VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS NAND2_x1
+
+.SUBCKT NAND2_x2 A B VDD VSS Y
+*.PININFO A:I B:I Y:O VDD:B VSS:B
+MPM0 Y A VDD VDD pmos_lvt l=14n w=15n nf=2
+MPM1 Y B VDD VDD pmos_lvt l=14n w=15n nf=2
+MNM0 net19 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM2 Y B net19 VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net018 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM3 Y B net018 VSS nmos_lvt l=14n w=15n nf=1
+.ENDS NAND2_x2
+
+.SUBCKT NAND2_x4 A B VDD VSS Y
+*.PININFO A:I B:I Y:O VDD:B VSS:B
+MMM9 Y B NET3 VSS nmos_lvt l=14n w=15n nf=1
+MMM8 NET3 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM7 Y B NET2 VSS nmos_lvt l=14n w=15n nf=1
+MMM6 NET2 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM5 Y B NET1 VSS nmos_lvt l=14n w=15n nf=1
+MMM4 NET1 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM3 Y B NET0 VSS nmos_lvt l=14n w=15n nf=1
+MMM2 NET0 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM1 Y B VDD VDD pmos_lvt l=14n w=15n nf=4
+MMM0 Y A VDD VDD pmos_lvt l=14n w=15n nf=4
+.ENDS NAND2_x4
+
+.SUBCKT NAND2_x6 A B VDD VSS Y
+*.PININFO A:I B:I Y:O VDD:B VSS:B
+MM23 X5_NET19 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM22 Y B X5_NET19 VSS nmos_lvt l=14n w=15n nf=1
+MM19 X4_NET19 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM18 Y B X4_NET19 VSS nmos_lvt l=14n w=15n nf=1
+MM15 X3_NET19 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM14 Y B X3_NET19 VSS nmos_lvt l=14n w=15n nf=1
+MM11 X2_NET19 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM10 Y B X2_NET19 VSS nmos_lvt l=14n w=15n nf=1
+MM7 X1_NET19 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM6 Y B X1_NET19 VSS nmos_lvt l=14n w=15n nf=1
+MM3 X0_NET19 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM2 Y B X0_NET19 VSS nmos_lvt l=14n w=15n nf=1
+MM21 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM20 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MM17 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM16 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MM13 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM12 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MM9 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM8 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MM5 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM4 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MM1 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM0 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+.ENDS NAND2_x6
+
+.SUBCKT NAND3_x1 A B C VDD VSS Y
+*.PININFO A:I B:I C:I Y:O VDD:B VSS:B
+MMNM2 Y C net13 VSS nmos_lvt l=14n w=15n nf=1
+MMNM1 net13 B net15 VSS nmos_lvt l=14n w=15n nf=1
+MMNM0 net15 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MMPM2 Y C VDD VDD pmos_lvt l=14n w=15n nf=1
+MMPM1 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MMPM0 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+.ENDS NAND3_x1
+
+.SUBCKT NAND3_x2 A B C VDD VSS Y
+*.PININFO A:I B:I C:I Y:O VDD:B VSS:B
+MM11 Y C X1_NET13 VSS nmos_lvt l=14n w=15n nf=1
+MM10 X1_NET13 B X1_NET15 VSS nmos_lvt l=14n w=15n nf=1
+MM9 X1_NET15 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM5 Y C X0_NET13 VSS nmos_lvt l=14n w=15n nf=1
+MM4 X0_NET13 B X0_NET15 VSS nmos_lvt l=14n w=15n nf=1
+MM3 X0_NET15 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM8 Y C VDD VDD pmos_lvt l=14n w=15n nf=1
+MM7 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MM6 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM2 Y C VDD VDD pmos_lvt l=14n w=15n nf=1
+MM1 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MM0 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+.ENDS NAND3_x2
+
+.SUBCKT NAND3_x3 A B C VDD VSS Y
+*.PININFO A:I B:I C:I Y:O VDD:B VSS:B
+MM17 Y C X2_NET13 VSS nmos_lvt l=14n w=15n nf=1
+MM16 X2_NET13 B X2_NET15 VSS nmos_lvt l=14n w=15n nf=1
+MM15 X2_NET15 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM11 Y C X1_NET13 VSS nmos_lvt l=14n w=15n nf=1
+MM10 X1_NET13 B X1_NET15 VSS nmos_lvt l=14n w=15n nf=1
+MM9 X1_NET15 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM5 Y C X0_NET13 VSS nmos_lvt l=14n w=15n nf=1
+MM4 X0_NET13 B X0_NET15 VSS nmos_lvt l=14n w=15n nf=1
+MM3 X0_NET15 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM14 Y C VDD VDD pmos_lvt l=14n w=15n nf=1
+MM13 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MM12 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM8 Y C VDD VDD pmos_lvt l=14n w=15n nf=1
+MM7 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MM6 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM2 Y C VDD VDD pmos_lvt l=14n w=15n nf=1
+MM1 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MM0 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+.ENDS NAND3_x3
+
+.SUBCKT NAND3_x4 A B C VDD VSS Y
+*.PININFO A:I B:I C:I Y:O VDD:B VSS:B
+MM23 Y C X3_NET13 VSS nmos_lvt l=14n w=15n nf=1
+MM22 X3_NET13 B X3_NET15 VSS nmos_lvt l=14n w=15n nf=1
+MM21 X3_NET15 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM17 Y C X2_NET13 VSS nmos_lvt l=14n w=15n nf=1
+MM16 X2_NET13 B X2_NET15 VSS nmos_lvt l=14n w=15n nf=1
+MM15 X2_NET15 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM11 Y C X1_NET13 VSS nmos_lvt l=14n w=15n nf=1
+MM10 X1_NET13 B X1_NET15 VSS nmos_lvt l=14n w=15n nf=1
+MM9 X1_NET15 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM5 Y C X0_NET13 VSS nmos_lvt l=14n w=15n nf=1
+MM4 X0_NET13 B X0_NET15 VSS nmos_lvt l=14n w=15n nf=1
+MM3 X0_NET15 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM20 Y C VDD VDD pmos_lvt l=14n w=15n nf=1
+MM19 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MM18 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM14 Y C VDD VDD pmos_lvt l=14n w=15n nf=1
+MM13 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MM12 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM8 Y C VDD VDD pmos_lvt l=14n w=15n nf=1
+MM7 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MM6 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM2 Y C VDD VDD pmos_lvt l=14n w=15n nf=1
+MM1 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MM0 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+.ENDS NAND3_x4
+
+.SUBCKT NAND4_x1 A B C D VDD VSS Y
+*.PININFO A:I B:I C:I D:I Y:O VDD:B VSS:B
+MMM7 Y A VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM6 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM5 Y C VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM4 Y D VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM3 Y A NET2 VSS nmos_lvt l=14n w=15n nf=1
+MMM2 NET2 B NET1 VSS nmos_lvt l=14n w=15n nf=1
+MMM1 NET1 C NET0 VSS nmos_lvt l=14n w=15n nf=1
+MMM0 NET0 D VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS NAND4_x1
+
+.SUBCKT NOR2_x1 A B VDD VSS Y
+*.PININFO A:I B:I Y:O VDD:B VSS:B
+MPM0 net15 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM1 Y B net15 VDD pmos_lvt l=14n w=15n nf=1
+MNM0 Y A VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM1 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS NOR2_x1
+
+.SUBCKT NOR2_x2 A B VDD VSS Y
+*.PININFO A:I B:I Y:O VDD:B VSS:B
+MPM3 Y B net014 VDD pmos_lvt l=14n w=15n nf=1
+MPM2 Y B net15 VDD pmos_lvt l=14n w=15n nf=1
+MPM0 net15 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM1 net014 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM0 Y A VSS VSS nmos_lvt l=14n w=15n nf=2
+MNM1 Y B VSS VSS nmos_lvt l=14n w=15n nf=2
+.ENDS NOR2_x2
+
+.SUBCKT NOR2_x4 A B VDD VSS Y
+*.PININFO A:I B:I Y:O VDD:B VSS:B
+MMM9 Y B VSS VSS nmos_lvt l=14n w=15n nf=4
+MMM8 Y A VSS VSS nmos_lvt l=14n w=15n nf=4
+MMM7 NET3 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM6 Y B NET3 VDD pmos_lvt l=14n w=15n nf=1
+MMM5 NET2 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM4 Y B NET2 VDD pmos_lvt l=14n w=15n nf=1
+MMM3 NET1 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM2 Y B NET1 VDD pmos_lvt l=14n w=15n nf=1
+MMM1 NET0 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM0 Y B NET0 VDD pmos_lvt l=14n w=15n nf=1
+.ENDS NOR2_x4
+
+.SUBCKT NOR2_x6 A B VDD VSS Y
+*.PININFO A:I B:I Y:O VDD:B VSS:B
+MM23 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+MM22 Y A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM19 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+MM18 Y A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM15 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+MM14 Y A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM11 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+MM10 Y A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM7 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+MM6 Y A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM3 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+MM2 Y A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM21 Y B X5_NET15 VDD pmos_lvt l=14n w=15n nf=1
+MM20 X5_NET15 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM17 Y B X4_NET15 VDD pmos_lvt l=14n w=15n nf=1
+MM16 X4_NET15 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM13 Y B X3_NET15 VDD pmos_lvt l=14n w=15n nf=1
+MM12 X3_NET15 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM9 Y B X2_NET15 VDD pmos_lvt l=14n w=15n nf=1
+MM8 X2_NET15 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM5 Y B X1_NET15 VDD pmos_lvt l=14n w=15n nf=1
+MM4 X1_NET15 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM1 Y B X0_NET15 VDD pmos_lvt l=14n w=15n nf=1
+MM0 X0_NET15 A VDD VDD pmos_lvt l=14n w=15n nf=1
+.ENDS NOR2_x6
+
+.SUBCKT NOR3_x1 A B C VDD VSS Y
+*.PININFO A:I B:I C:I Y:O VDD:B VSS:B
+MNM0 Y A VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM1 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM2 Y C VSS VSS nmos_lvt l=14n w=15n nf=1
+MPM2 net011 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM0 Y C net15 VDD pmos_lvt l=14n w=15n nf=1
+MPM1 net15 B net011 VDD pmos_lvt l=14n w=15n nf=1
+.ENDS NOR3_x1
+
+.SUBCKT NOR3_x2 A B C VDD VSS Y
+*.PININFO A:I B:I C:I Y:O VDD:B VSS:B
+MM11 X1_NET15 B X1_NET011 VDD pmos_lvt l=14n w=15n nf=1
+MM10 Y C X1_NET15 VDD pmos_lvt l=14n w=15n nf=1
+MM9 X1_NET011 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM5 X0_NET15 B X0_NET011 VDD pmos_lvt l=14n w=15n nf=1
+MM4 Y C X0_NET15 VDD pmos_lvt l=14n w=15n nf=1
+MM3 X0_NET011 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM8 Y C VSS VSS nmos_lvt l=14n w=15n nf=1
+MM7 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+MM6 Y A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM2 Y C VSS VSS nmos_lvt l=14n w=15n nf=1
+MM1 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+MM0 Y A VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS NOR3_x2
+
+.SUBCKT NOR3_x3 A B C VDD VSS Y
+*.PININFO A:I B:I C:I Y:O VDD:B VSS:B
+MM17 X2_NET15 B X2_NET011 VDD pmos_lvt l=14n w=15n nf=1
+MM16 Y C X2_NET15 VDD pmos_lvt l=14n w=15n nf=1
+MM15 X2_NET011 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM11 X1_NET15 B X1_NET011 VDD pmos_lvt l=14n w=15n nf=1
+MM10 Y C X1_NET15 VDD pmos_lvt l=14n w=15n nf=1
+MM9 X1_NET011 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM5 X0_NET15 B X0_NET011 VDD pmos_lvt l=14n w=15n nf=1
+MM4 Y C X0_NET15 VDD pmos_lvt l=14n w=15n nf=1
+MM3 X0_NET011 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MM14 Y C VSS VSS nmos_lvt l=14n w=15n nf=1
+MM13 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+MM12 Y A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM8 Y C VSS VSS nmos_lvt l=14n w=15n nf=1
+MM7 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+MM6 Y A VSS VSS nmos_lvt l=14n w=15n nf=1
+MM2 Y C VSS VSS nmos_lvt l=14n w=15n nf=1
+MM1 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+MM0 Y A VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS NOR3_x3
+
+.SUBCKT NOR4_x1 A B C D VDD VSS Y
+*.PININFO A:I B:I C:I D:I Y:O VDD:B VSS:B
+MMP3 p13 D Y VDD pmos_lvt l=14n w=15n nf=1
+MMP2 p12 C p13 VDD pmos_lvt l=14n w=15n nf=1
+MMP1 p11 B p12 VDD pmos_lvt l=14n w=15n nf=1
+MMP0 VDD A p11 VDD pmos_lvt l=14n w=15n nf=1
+MMN3 Y D VSS VSS nmos_lvt l=14n w=15n nf=1
+MMN2 Y C VSS VSS nmos_lvt l=14n w=15n nf=1
+MMN1 Y B VSS VSS nmos_lvt l=14n w=15n nf=1
+MMN0 Y A VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS NOR4_x1
+
+.SUBCKT OA211_x1 A1 A2 B C VDD VSS Y
+*.PININFO A1:I A2:I B:I C:I Y:O VDD:B VSS:B
+MPM4 Y net013 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM1 net013 A2 net15 VDD pmos_lvt l=14n w=15n nf=1
+MPM0 net15 A1 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM3 net013 C VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 net013 B VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM0 net013 A2 net015 VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net013 A1 net015 VSS nmos_lvt l=14n w=15n nf=1
+MNM2 net015 B net022 VSS nmos_lvt l=14n w=15n nf=1
+MNM3 net022 C VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM4 Y net013 VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS OA211_x1
+
+.SUBCKT OA21_x1 A1 A2 B VDD VSS Y
+*.PININFO A1:I A2:I B:I Y:O VDD:B VSS:B
+MPM0 net011 A2 net15 VDD pmos_lvt l=14n w=15n nf=1
+MPM1 net15 A1 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 net011 B VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM3 Y net011 VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM1 net011 A2 net014 VSS nmos_lvt l=14n w=15n nf=1
+MNM0 net011 A1 net014 VSS nmos_lvt l=14n w=15n nf=1
+MNM3 Y net011 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM2 net014 B VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS OA21_x1
+
+.SUBCKT OA22_x1 A1 A2 B1 B2 VDD VSS Y
+*.PININFO A1:I A2:I B1:I B2:I Y:O VDD:B VSS:B
+MPM4 Y net014 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM3 net014 B2 net15 VDD pmos_lvt l=14n w=15n nf=1
+MPM1 net014 A2 net024 VDD pmos_lvt l=14n w=15n nf=1
+MPM2 net15 B1 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM0 net024 A1 VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM0 net014 A2 net31 VSS nmos_lvt l=14n w=15n nf=1
+MNM2 net014 A1 net31 VSS nmos_lvt l=14n w=15n nf=1
+MNM4 Y net014 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net31 B2 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM3 net31 B1 VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS OA22_x1
+
+.SUBCKT OAI211_x1 A1 A2 B C VDD VSS Y
+*.PININFO A1:I A2:I B:I C:I Y:O VDD:B VSS:B
+MPM3 Y C VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM0 net15 A1 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM1 Y A2 net15 VDD pmos_lvt l=14n w=15n nf=1
+MNM1 net022 C net010 VSS nmos_lvt l=14n w=15n nf=1
+MNM2 net010 A1 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM0 Y B net022 VSS nmos_lvt l=14n w=15n nf=1
+MNM3 net010 A2 VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS OAI211_x1
+
+.SUBCKT OAI21_x1 A1 A2 B VDD VSS Y
+*.PININFO A1:I A2:I B:I Y:O VDD:B VSS:B
+MPM0 Y A2 net15 VDD pmos_lvt l=14n w=15n nf=1
+MPM1 net15 A1 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM0 Y A1 net014 VSS nmos_lvt l=14n w=15n nf=1
+MNM2 net014 B VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM1 Y A2 net014 VSS nmos_lvt l=14n w=15n nf=1
+.ENDS OAI21_x1
+
+.SUBCKT OAI221_x1 A1 A2 B C1 C2 VDD VSS Y
+*.PININFO A1:I A2:I B:I C1:I C2:I Y:O VDD:B VSS:B
+MPM4 Y C2 net026 VDD pmos_lvt l=14n w=15n nf=1
+MPM3 net026 C1 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 Y B VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM0 net15 A1 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM1 Y A2 net15 VDD pmos_lvt l=14n w=15n nf=1
+MNM3 Y C1 net022 VSS nmos_lvt l=14n w=15n nf=1
+MNM2 net022 B net010 VSS nmos_lvt l=14n w=15n nf=1
+MNM4 Y C2 net022 VSS nmos_lvt l=14n w=15n nf=1
+MNM0 net010 A1 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net010 A2 VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS OAI221_x1
+
+.SUBCKT OR2_x1 A B VDD VSS Y
+*.PININFO A:I B:I Y:O VDD:B VSS:B
+MPM0 net15 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM1 net07 B net15 VDD pmos_lvt l=14n w=15n nf=1
+MPM2 Y net07 VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM1 net07 B VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM2 Y net07 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM0 net07 A VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS OR2_x1
+
+.SUBCKT OR2_x2 A B VDD VSS Y
+*.PININFO A:I B:I Y:O VDD:B VSS:B
+MNM0 net07 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net07 B VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM2 Y net07 VSS VSS nmos_lvt l=14n w=15n nf=2
+MPM1 net15 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 Y net07 VDD VDD pmos_lvt l=14n w=15n nf=2
+MPM0 net07 B net15 VDD pmos_lvt l=14n w=15n nf=1
+.ENDS OR2_x2
+
+.SUBCKT OR3_x1 A B C VDD VSS Y
+*.PININFO A:I B:I C:I Y:O VDD:B VSS:B
+MPM3 Y net08 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 net08 C net15 VDD pmos_lvt l=14n w=15n nf=1
+MPM1 net15 B net011 VDD pmos_lvt l=14n w=15n nf=1
+MPM0 net011 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MNM0 net08 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM3 Y net08 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net08 B VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM2 net08 C VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS OR3_x1
+
+.SUBCKT SDFF_x1 CLK D QN SE SI VDD VSS
+*.PININFO CLK:I D:I SE:I SI:I QN:O VDD:B VSS:B
+MMM31 QN NET9 VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM30 NET11 NET9 VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM29 NET6 NET4 VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM28 NET15 NET11 VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM27 NET9 NET6 NET15 VDD pmos_lvt l=14n w=15n nf=1
+MMM26 NET9 NET4 NET8 VDD pmos_lvt l=14n w=15n nf=1
+MMM25 NET8 NET5 VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM24 NET14 NET8 VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM23 NET5 NET4 NET14 VDD pmos_lvt l=14n w=15n nf=1
+MMM22 NET5 NET6 NET2 VDD pmos_lvt l=14n w=15n nf=1
+MMM21 NET4 CLK VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM20 NET13 SI VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM19 NET2 NET0 NET13 VDD pmos_lvt l=14n w=15n nf=1
+MMM18 NET2 D NET12 VDD pmos_lvt l=14n w=15n nf=1
+MMM17 NET12 SE VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM16 NET0 SE VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM15 QN NET9 VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM14 NET11 NET9 VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM13 NET6 NET4 VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM12 NET10 NET11 VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM11 NET9 NET4 NET10 VSS nmos_lvt l=14n w=15n nf=1
+MMM10 NET9 NET6 NET8 VSS nmos_lvt l=14n w=15n nf=1
+MMM9 NET8 NET5 VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM8 NET7 NET8 VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM7 NET5 NET6 NET7 VSS nmos_lvt l=14n w=15n nf=1
+MMM6 NET5 NET4 NET2 VSS nmos_lvt l=14n w=15n nf=1
+MMM5 NET4 CLK VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM4 NET3 SI VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM3 NET2 SE NET3 VSS nmos_lvt l=14n w=15n nf=1
+MMM2 NET2 D NET1 VSS nmos_lvt l=14n w=15n nf=1
+MMM1 NET1 NET0 VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM0 NET0 SE VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS SDFF_x1
+
+.SUBCKT SDFF_x2 CLK D QN SE SI VDD VSS
+*.PININFO CLK:I D:I SE:I SI:I QN:O VDD:B VSS:B
+MMM33 QN NET9 VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM32 QN NET9 VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM31 NET11 NET9 VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM30 NET6 NET4 VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM29 NET15 NET11 VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM28 NET9 NET6 NET15 VDD pmos_lvt l=14n w=15n nf=1
+MMM27 NET9 NET4 NET8 VDD pmos_lvt l=14n w=15n nf=1
+MMM26 NET8 NET5 VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM25 NET14 NET8 VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM24 NET5 NET4 NET14 VDD pmos_lvt l=14n w=15n nf=1
+MMM23 NET5 NET6 NET2 VDD pmos_lvt l=14n w=15n nf=1
+MMM22 NET4 CLK VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM21 NET13 SI VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM20 NET2 NET0 NET13 VDD pmos_lvt l=14n w=15n nf=1
+MMM19 NET2 D NET12 VDD pmos_lvt l=14n w=15n nf=1
+MMM18 NET12 SE VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM17 NET0 SE VDD VDD pmos_lvt l=14n w=15n nf=1
+MMM16 QN NET9 VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM15 QN NET9 VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM14 NET11 NET9 VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM13 NET6 NET4 VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM12 NET10 NET11 VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM11 NET9 NET4 NET10 VSS nmos_lvt l=14n w=15n nf=1
+MMM10 NET9 NET6 NET8 VSS nmos_lvt l=14n w=15n nf=1
+MMM9 NET8 NET5 VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM8 NET7 NET8 VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM7 NET5 NET6 NET7 VSS nmos_lvt l=14n w=15n nf=1
+MMM6 NET5 NET4 NET2 VSS nmos_lvt l=14n w=15n nf=1
+MMM5 NET4 CLK VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM4 NET3 SI VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM3 NET2 SE NET3 VSS nmos_lvt l=14n w=15n nf=1
+MMM2 NET2 D NET1 VSS nmos_lvt l=14n w=15n nf=1
+MMM1 NET1 NET0 VSS VSS nmos_lvt l=14n w=15n nf=1
+MMM0 NET0 SE VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS SDFF_x2
+
+.SUBCKT XNOR2_x1 A B VDD VSS Y
+*.PININFO A:I B:I Y:O VDD:B VSS:B
+MPM1 net08 B VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM2 net023 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM0 net08 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM3 Y net08 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM4 Y B net023 VDD pmos_lvt l=14n w=15n nf=1
+MNM2 Y B net016 VSS nmos_lvt l=14n w=15n nf=1
+MNM4 net016 net08 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM3 Y A net016 VSS nmos_lvt l=14n w=15n nf=1
+MNM0 net08 B net19 VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net19 A VSS VSS nmos_lvt l=14n w=15n nf=1
+.ENDS XNOR2_x1
+
+.SUBCKT XOR2_x1 A B VDD VSS Y
+*.PININFO A:I B:I Y:O VDD:B VSS:B
+MPM1 net010 B net15 VDD pmos_lvt l=14n w=15n nf=1
+MPM0 net15 A VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM5 Y A net019 VDD pmos_lvt l=14n w=15n nf=1
+MPM2 net019 net010 VDD VDD pmos_lvt l=14n w=15n nf=1
+MPM4 Y B net019 VDD pmos_lvt l=14n w=15n nf=1
+MNM0 net010 A VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM3 net025 B VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM4 Y net010 VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM1 net010 B VSS VSS nmos_lvt l=14n w=15n nf=1
+MNM2 Y A net025 VSS nmos_lvt l=14n w=15n nf=1
+.ENDS XOR2_x1
