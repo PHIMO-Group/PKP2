@@ -1,0 +1,16 @@
+# Rule decks are distributed separately on application and must not be committed
+/runsets/
+PKP2_runsets_V*/
+
+# Virtuoso and editor backups, locks, and logs
+*.bak
+*.oa-
+*.cdslck*
+*.log
+*~
+
+# Archives and OS files
+*.zip
+.DS_Store
+Thumbs.db
+desktop.ini
